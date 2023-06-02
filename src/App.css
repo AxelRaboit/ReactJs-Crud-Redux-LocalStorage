@@ -1,0 +1,137 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.error {
+  background-color: #ff0000;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+
+.card {
+  padding: 2em;
+}
+
+.addUser {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(66, 66, 66);
+  padding: 2rem;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+.addUser input {
+  padding: 0.5em;
+  margin: 0.5em 0;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  font-size: 1em;
+}
+
+.addUser .addButton {
+  padding: 0.5em;
+  margin: 0.5em 0;
+  border-radius: 0.5em;
+  font-size: 1em;
+  background: rgb(28, 176, 28);
+  color: #fff;
+  cursor: pointer;
+}
+
+.addUser .addButton:hover {
+  background-color: green;
+  border-color: green;
+}
+
+.displayUsers {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(66, 66, 66);
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  color: black;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  width: 400px;
+}
+
+.userDetails {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+}
+
+.userDetails .deleteButton {
+  background-color: #ff0000;
+}
+
+.userDetails .deleteButton:hover {
+  background-color: #861919;
+  border-color: #861919;;
+}
+
+.userDetails .submitButton {
+  background-color: rgb(28, 176, 28);
+  color: #fff;
+}
+
+.userDetails .submitButton:hover {
+  background-color: green;
+  border-color: green;
+}
+
+.userDetails .cancelButton {
+  background-color: black;
+  color: #fff;
+}
+
+.userDetails .cancelButton:hover {
+  background-color: black;
+  border-color: black;;
+}
+
+.userDetails .updateButton {
+  background-color: rgb(28, 176, 28);
+  color: #fff;
+}
+
+.userDetails .updateButton:hover {
+  background-color: green;
+  border-color: green;
+}
+
+.userDetails button, .userDetails input {
+  margin: 0.5rem 0;
+}
+
+.userDetails input {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  font-size: 1em;
+}
+
+.userDetails .name, .userDetail .username {
+  margin-right: 1rem;
+}
+
+.userDetails span {
+  font-weight: bold;
+}
