@@ -59,9 +59,15 @@
   border-radius: 5px;
 }
 
+.displayUsers .containerUserInformation {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
 .user {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 1rem;
   background-color: #fff;
@@ -76,6 +82,11 @@
   justify-content: space-between;
   flex-direction: column;
   width: 100%;
+}
+
+.userDetails .containerUser {
+  display: flex;
+  justify-content: center;
 }
 
 .userDetails .deleteButton {

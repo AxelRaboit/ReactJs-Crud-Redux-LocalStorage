@@ -103,8 +103,12 @@ function App() {
                     {userList.slice(0).reverse().map((user, index) => (
                         <div key={index} className='user'>
                             <div className='userDetails'>
-                                <div className='name'><span>Name: </span> {user.name}</div>
-                                <div className='username'><span>Username: </span>{user.username}</div>
+                                <div className='containerUser'>
+                                    <div className='containerUserInformation'>
+                                        <div className='name'><span>Name: </span> {user.name}</div>
+                                        <div className='username'><span>Username: </span>{user.username}</div>
+                                    </div>
+                                </div>
                                 {editingUserId === user.id ? (
                                     <>
                                         <input
