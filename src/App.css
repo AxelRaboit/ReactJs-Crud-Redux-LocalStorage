@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+.App {
+  width: 400px;
+}
+
 .error {
   background-color: #ff0000;
   border-radius: 5px;
@@ -26,6 +30,7 @@
   padding: 2rem;
   border-radius: 5px;
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .addUser input {
@@ -57,6 +62,7 @@
   background-color: rgb(66, 66, 66);
   padding: 2rem;
   border-radius: 5px;
+  width: 100%;
 }
 
 .displayUsers .containerUserInformation {
@@ -74,7 +80,7 @@
   color: black;
   border-radius: 5px;
   margin-bottom: 1rem;
-  width: 400px;
+  /* width: 400px; */
 }
 
 .userDetails {

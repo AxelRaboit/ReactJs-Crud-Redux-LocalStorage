@@ -83,6 +83,7 @@ function App() {
                     value={name}
                     onChange={(e) => {
                         setName(e.target.value);
+                        setAddUserError(null);
                     }}
                 />
                 <input
@@ -91,6 +92,7 @@ function App() {
                     value={username}
                     onChange={(e) => {
                         setUsername(e.target.value);
+                        setAddUserError(null);
                     }}
                 />
 
