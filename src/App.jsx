@@ -19,11 +19,6 @@ function App() {
 
     const handleAddUser = () => {
 
-        /* if (!name || !username || !profileImage) {
-            setAddUserError('Please enter both name, username, and upload a profile image');
-            return;
-        } */
-
         if (!name || !username) {
             setAddUserError('Please enter both name, username, and upload a profile image');
             return;
@@ -98,12 +93,6 @@ function App() {
                         setUsername(e.target.value);
                     }}
                 />
-                {/* <input
-                    type="file"
-                    onChange={(e) => {
-                        setProfileImage(e.target.files[0]);
-                    }}
-                /> */}
 
                 {addUserError && <div className='error'>{addUserError}</div>}
 
@@ -114,12 +103,6 @@ function App() {
                     {userList.slice(0).reverse().map((user, index) => (
                         <div key={index} className='user'>
                             <div className='userDetails'>
-                                {/* {user.profileImage && (
-                            <img src={URL.createObjectURL(user.profileImage)} alt="Profile" />
-                        )} */}
-                                {/* {user.profileImageUrl && (
-                            <img src={user.profileImageUrl} alt="Profile" />
-                        )} */}
                                 <div className='name'><span>Name: </span> {user.name}</div>
                                 <div className='username'><span>Username: </span>{user.username}</div>
                                 {editingUserId === user.id ? (
