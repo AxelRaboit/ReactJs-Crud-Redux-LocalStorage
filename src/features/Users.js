@@ -36,10 +36,13 @@ export const usersSlice = createSlice({
             state.value = state.value.filter((user) => user.id !== action.payload.id);
             saveStateToLocalStorage(state.value);
         },
-        updateUsername: (state, action) => {
+        updateUser: (state, action) => {
             state.value = state.value.map((user) => {
                 if (user.id === action.payload.id) {
-                    return { ...user, username: action.payload.username };
+                    return { ...user,
+                        username: action.payload.username,
+                        name: action.payload.name,
+                };
                 }
                 return user;
             });
@@ -48,6 +51,6 @@ export const usersSlice = createSlice({
     }
 });
 
-export const { addUser, deleteUser, updateUsername } = usersSlice.actions;
+export const { addUser, deleteUser, updateUser } = usersSlice.actions;
 
 export default usersSlice.reducer;

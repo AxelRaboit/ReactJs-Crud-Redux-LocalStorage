@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { addUser, deleteUser, updateUsername } from './features/Users'
+import { addUser, deleteUser, updateUser } from './features/Users'
 
 function App() {
 
@@ -12,6 +12,7 @@ function App() {
     const [username, setUsername] = useState('');
     const [editingUserId, setEditingUserId] = useState(null);
     const [newUsername, setNewUsername] = useState('');
+    const [newName, setNewName] = useState('');
     const [isModified, setIsModified] = useState(false);
     const [addUserError, setAddUserError] = useState(null);
     const [updateUserError, setUpdateUserError] = useState(null);
@@ -20,7 +21,7 @@ function App() {
     const handleAddUser = () => {
 
         if (!name || !username) {
-            setAddUserError('Please enter both name, username, and upload a profile image');
+            setAddUserError('Please enter both name and username');
             return;
         }
 
@@ -38,30 +39,34 @@ function App() {
         setProfileImage(null);
     };
 
-    const handleEditUser = (userId, currentUsername) => {
+    const handleEditUser = (userId, currentUsername, currentName) => {
         setEditingUserId(userId);
         setNewUsername(currentUsername);
+        setNewName(currentName);
         setIsModified(false);
     };
 
     const handleUpdateUser = () => {
-
-        if (!newUsername) {
-            setUpdateUserError('Please enter a username');
+        if (!newUsername || !newName) {
+            setUpdateUserError('Please enter a username and name');
             return;
         }
-
-        dispatch(updateUsername({ id: editingUserId, username: newUsername }));
+    
+        dispatch(
+            updateUser({ id: editingUserId, username: newUsername, name: newName })
+        );
         setEditingUserId(null);
         setNewUsername('');
+        setNewName('');
         setIsModified(false);
     };
 
     const handleCancelUpdate = () => {
         setEditingUserId(null);
         setNewUsername('');
+        setNewName('');
         setIsModified(false);
-
+    
         if (updateUserError) setUpdateUserError(null);
     };
 
@@ -72,6 +77,11 @@ function App() {
     const handleUsernameChange = (e) => {
         setNewUsername(e.target.value);
         setIsModified(e.target.value !== userList.find(user => user.id === editingUserId).username);
+    };
+
+    const handleNameChange = (e) => {
+        setNewName(e.target.value);
+        setIsModified(e.target.value !== userList.find(user => user.id === editingUserId).name);
     };
 
     return (
@@ -104,7 +114,7 @@ function App() {
                 <div className='displayUsers'>
                     {userList.slice(0).reverse().map((user, index) => (
                         <div key={index} className='user'>
-                            <div className='userDetails'>
+                                                        <div className='userDetails'>
                                 <div className='containerUser'>
                                     <div className='containerUserInformation'>
                                         <div className='name'><span>Name: </span> {user.name}</div>
@@ -113,6 +123,12 @@ function App() {
                                 </div>
                                 {editingUserId === user.id ? (
                                     <>
+                                        <input
+                                            type="text"
+                                            placeholder={user.name}
+                                            value={newName}
+                                            onChange={handleNameChange}
+                                        />
                                         <input
                                             type="text"
                                             placeholder={user.username}
@@ -125,12 +141,12 @@ function App() {
                                         {isModified && (
                                             <button className='submitButton' onClick={handleUpdateUser}>Submit</button>
                                         )}
-                                        <button className='cancelButton' onClick={() => handleCancelUpdate()}>Cancel</button>
+                                        <button className='cancelButton' onClick={handleCancelUpdate}>Cancel</button>
+                                        <button className='deleteButton' onClick={() => handleDeleteUser(user.id)}>Delete User</button>
                                     </>
                                 ) : (
-                                    <button className='updateButton' onClick={() => handleEditUser(user.id, user.username)}>Update Username</button>
+                                    <button className='updateButton' onClick={() => handleEditUser(user.id, user.username, user.name)}>Update Username</button>
                                 )}
-                                <button className='deleteButton' onClick={() => handleDeleteUser(user.id)}>Delete User</button>
                             </div>
                         </div>
                     ))}
